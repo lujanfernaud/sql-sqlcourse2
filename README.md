@@ -1,6 +1,6 @@
 # SQLCourse2
 
-Exercises from [sqlcourse2.com](http://www.sqlcourse2.com).
+SQL exercises from [sqlcourse2.com](http://www.sqlcourse2.com).
 
 ## Snippets
 
@@ -20,7 +20,7 @@ LIKE     -- Compare a value to similar values using wild card operators
 
 ### SELECT Statement
 
-```
+```sql
 SELECT DISTINCT state
            FROM customers;
 ```
@@ -36,7 +36,7 @@ COUNT    -- returns the total number of values in a given column
 COUNT(*) -- returns the number of rows in a table
 ```
 
-```
+```sql
 SELECT AVG(price)
   FROM items_ordered
  WHERE order_date LIKE '%Dec%';
@@ -44,7 +44,7 @@ SELECT AVG(price)
 
 ### GROUP BY Clause
 
-```
+```sql
   SELECT customerid, COUNT(customerid), SUM(price)
     FROM items_ordered
 GROUP BY customerid;
@@ -52,7 +52,7 @@ GROUP BY customerid;
 
 ### HAVING Clause
 
-```
+```sql
   SELECT item, MAX(price), MIN(price)
     FROM items_ordered
 GROUP BY item
@@ -61,7 +61,7 @@ GROUP BY item
 
 ### ORDER BY Clause
 
-```
+```sql
   SELECT item, price
     FROM items_ordered
   HAVING price > 10.00
@@ -70,7 +70,7 @@ ORDER BY price;
 
 ### Combining Conditions & Boolean Operators
 
-```
+```sql
 SELECT item, price
   FROM items_ordered
  WHERE item LIKE 'S%'
@@ -80,16 +80,16 @@ SELECT item, price
 
 ### IN and BETWEEN
 
-```
+```sql
 SELECT firstname, city, state
   FROM customers
  WHERE state IN ('Arizona', 'Washington', 'Oklahoma', 'Colorado', 'Hawaii');
 ```
 
-```
+```sql
 SELECT order_date, item, price
   FROM items_ordered
- WHERE price BETWEEN 10.00 and 80.00;
+ WHERE price BETWEEN 10.00 AND 80.00;
 ```
 
 ### Mathematical Functions
@@ -110,7 +110,7 @@ ROUND(x,d) -- returns the value of x rounded to the number of decimal places
 SQRT(x)    -- returns the square-root value of x
 ```
 
-```
+```sql
   SELECT item, ROUND(price / quantity, 2)
     FROM items_ordered
 GROUP BY item;
@@ -118,7 +118,7 @@ GROUP BY item;
 
 ### Table Joins
 
-```
+```sql
   SELECT customers.customerid, customers.firstname, customers.lastname,
          items_ordered.order_date, items_ordered.item, items_ordered.price
     FROM customers, items_ordered
