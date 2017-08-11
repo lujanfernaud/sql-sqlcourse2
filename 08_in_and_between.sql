@@ -3,7 +3,7 @@
 
 SELECT order_date, item, price
   FROM items_ordered
- WHERE price BETWEEN 10.00 and 80.00;
+ WHERE price BETWEEN 10.00 AND 80.00;
 
 -- 2. Select the firstname, city, and state from the customers table for all
 -- of the rows where the state value is either: Arizona, Washington, Oklahoma,
